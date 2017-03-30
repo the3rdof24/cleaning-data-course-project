@@ -6,19 +6,19 @@ The experiments have been carried out with a group of 30 volunteers within an ag
 
 The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain.
 
-##### run_analysis() creates a table with the following variables:
+#### run_analysis() creates a table with the following variables:
 
 ###### subjectId
 - Identifier for the test subject. Its range is from 1 to 30.
 
 ###### activity
 - The activity performed while wearing the smartphone.
-1 = Walking
-2 = Walking Upstairs
-3 = Walking Downstairs
-4 = Sitting
-5 = Standing
-6 = Laying
+   1 = Walking
+   2 = Walking Upstairs
+   3 = Walking Downstairs
+   4 = Sitting
+   5 = Standing
+   6 = Laying
 
 ###### domain
 - The signal domain, either 'time' or 'frequency'.
@@ -36,24 +36,24 @@ The sensor signals (accelerometer and gyroscope) were pre-processed by applying 
 - The calculated value of the analysisFunction on the signal measured.
 
 
-##### Raw Data to Tidy Data Transformation
+#### Raw Data to Tidy Data Transformation
 
 1. Read **train/X_train.txt**, and add a column with the subjects from **train/y_train.txt** using features.txt as the column names.
 2. Read **test/X_test.txt**, and add a column with the subjects from **test/y_test.txt** using features.txt as the column names.
 3. Associate the activity with the data from activity_labels.txt
 3. Combine the data frames from 1 & 2.
 4. At this stage we have the following columns:
-..* subjectId
-..* activity
-..* All the column names from **features.txt** where parentheses **()** have been removed
+  * subjectId
+  * activity
+  * All the column names from **features.txt** where parentheses **()** have been removed
 5. Only the feature columns which contain '-mean()', or '-std()' are selected.
 6. All the feature columns are melted so that we have
-..* subjectId
-..* activity
-..* featureName
-..* featureValue
+  * subjectId
+  * activity
+  * featureName
+  * featureValue
 7. Column *featureName* is then separated into
-..* domain
-..* measurement
-..* analysisFunction
-..* axis
+  * domain
+  * measurement
+  * analysisFunction
+  * axis
